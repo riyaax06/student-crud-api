@@ -10,11 +10,7 @@ students = [
 
 @app.route('/', methods=['GET'])
 def index():
-    """
-    GET /
-    Returns a simple message confirming that the API is running.
-    """
-    return jsonify({"message": "Student CRUD API is running"}), 200
+    return render_template('index.html')
 
 @app.route('/ui', methods=['GET'])
 def ui():
