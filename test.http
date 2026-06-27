@@ -1,0 +1,103 @@
+@baseUrl = http://127.0.0.1:5000
+
+### 1. Test Root Endpoint
+GET {{baseUrl}}/
+Accept: application/json
+
+###
+
+### 2. Get All Students
+GET {{baseUrl}}/students
+Accept: application/json
+
+###
+
+### 3. Get Student by ID (Exists)
+GET {{baseUrl}}/students/1
+Accept: application/json
+
+###
+
+### 4. Get Student by ID (Does Not Exist)
+GET {{baseUrl}}/students/999
+Accept: application/json
+
+###
+
+### 5. Create a Student (Success)
+POST {{baseUrl}}/students
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 3,
+  "name": "Charlie Brown",
+  "course": "Physics"
+}
+
+###
+
+### 6. Create a Student (Duplicate ID Error)
+POST {{baseUrl}}/students
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 1,
+  "name": "Duplicate Student",
+  "course": "Chemistry"
+}
+
+###
+
+### 7. Create a Student (Missing Field Error)
+POST {{baseUrl}}/students
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 4,
+  "name": "Missing Course"
+}
+
+###
+
+### 8. Update Student (Success)
+PUT {{baseUrl}}/students/3
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Charlie Brown Jr.",
+  "course": "Astrophysics"
+}
+
+###
+
+### 9. Update Student (Does Not Exist Error)
+PUT {{baseUrl}}/students/999
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Non Existent",
+  "course": "Art"
+}
+
+###
+
+### 10. Delete Student (Success)
+DELETE {{baseUrl}}/students/3
+Accept: application/json
+
+###
+
+### 11. Delete Student (Does Not Exist Error)
+DELETE {{baseUrl}}/students/999
+Accept: application/json
+
+###
+
+### 12. Verify List After Deletion
+GET {{baseUrl}}/students
+Accept: application/json
