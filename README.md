@@ -10,8 +10,26 @@ CRUD_API/
 ├── app.py              # Main Flask application containing routing and validation logic
 ├── requirements.txt    # Project dependencies (Flask)
 ├── README.md           # Instructions on setup, running, and testing the API
-└── test.http           # Sample HTTP requests for testing with VS Code REST Client
+├── test.http           # Sample HTTP requests for testing with VS Code REST Client
+└── templates/
+    └── index.html      # Web UI for interacting with the API visually
 ```
+
+---
+
+## Accessing the Web UI
+
+A modern, premium dark-themed web interface is built-in to make managing students easier.
+
+To access the UI, run the app and navigate to:
+[http://127.0.0.1:5000/ui](http://127.0.0.1:5000/ui) in your browser.
+
+The UI supports:
+- Real-time search/filtering of students by name or course.
+- Add new student records.
+- Edit existing student details.
+- Delete student records with real-time UI updates.
+- Validation warning prompts and toast notifications.
 
 ---
 

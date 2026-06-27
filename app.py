@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__)
 
@@ -15,6 +15,14 @@ def index():
     Returns a simple message confirming that the API is running.
     """
     return jsonify({"message": "Student CRUD API is running"}), 200
+
+@app.route('/ui', methods=['GET'])
+def ui():
+    """
+    GET /ui
+    Renders the frontend HTML page for the Student CRUD API.
+    """
+    return render_template('index.html'), 200
 
 @app.route('/students', methods=['GET'])
 def get_students():
